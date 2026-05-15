@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+
+    --background: 250 249 247;
+    --foreground: 28 25 23;
+    --card: 255 255 255;
+    --card-foreground: 28 25 23;
+    --border: 231 229 228;
+    --muted: 245 245 244;
+    --muted-foreground: 120 113 108;
+    --accent: 201 169 110;
+    --accent-foreground: 28 25 23;
+    --primary: 28 25 23;
+    --primary-foreground: 250 249 247;
+    --secondary: 245 245 244;
+    --secondary-foreground: 68 64 60;
+    --destructive: 239 68 68;
+    --ring: 201 169 110;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 12 10 9;
+    --foreground: 250 249 247;
+    --card: 28 25 23;
+    --card-foreground: 245 245 244;
+    --border: 44 40 38;
+    --muted: 28 25 23;
+    --muted-foreground: 168 162 158;
+    --accent: 201 169 110;
+    --accent-foreground: 12 10 9;
+    --primary: 245 245 244;
+    --primary-foreground: 28 25 23;
+    --secondary: 44 40 38;
+    --secondary-foreground: 214 211 209;
+    --destructive: 239 68 68;
+    --ring: 201 169 110;
+  }
+  
+  html {
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[rgb(var(--background))] text-[rgb(var(--foreground))];
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .border-border { border-color: rgb(var(--border)); }
+  .bg-background { background-color: rgb(var(--background)); }
+  .text-foreground { color: rgb(var(--foreground)); }
+  .bg-card { background-color: rgb(var(--card)); }
+  .text-muted-foreground { color: rgb(var(--muted-foreground)); }
+  .bg-muted { background-color: rgb(var(--muted)); }
+  .text-accent { color: rgb(var(--accent)); }
+  .bg-accent { background-color: rgb(var(--accent)); }
+  .bg-primary { background-color: rgb(var(--primary)); }
+  .text-primary-foreground { color: rgb(var(--primary-foreground)); }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      rgb(var(--muted)) 0%,
+      rgb(var(--border)) 50%,
+      rgb(var(--muted)) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgb(var(--border)); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgb(var(--muted-foreground)); }
+
+/* Selection */
+::selection {
+  background: rgba(201, 169, 110, 0.2);
+  color: rgb(var(--foreground));
+}
