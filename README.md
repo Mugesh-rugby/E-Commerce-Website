@@ -45,7 +45,7 @@ ecommerce-website/
 ├── package.json
 └── README.md 
 
-## 🎨 UI Components Used
+🎨 UI Components Used
 Button
 Card
 Input
